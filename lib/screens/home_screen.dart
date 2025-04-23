@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
         );
     } else {
       final res = await dio.post("/proses_api.php", data: {
-        "aksi": "save",
+        "aksi": "saveBMW",
         "etiquetaB": etiquetaB.text,
         "etiquetaV": etiquetaV.text,
         "username": widget.usuario

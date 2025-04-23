@@ -38,9 +38,17 @@ class _Icon extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 50),
         width: double.infinity,
-        child: Image.asset('assets/images/logo1.png', width: 80, height: 80),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final imageSize = constraints.maxWidth * 0.2; // Adjust size based on screen width
+            return Image.asset(
+              'assets/images/logo1.png',
+              width: imageSize,
+              height: imageSize,
+            );
+          },
         ),
-      );
+      ));
   }
 }
 
