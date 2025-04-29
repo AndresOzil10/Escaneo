@@ -36,15 +36,16 @@ class _DesingState extends State<Desing> {
   Future login(String user, String password) async {
     //final response = await Dio().post('http://192.168.0.151/API/login.php');
     final res = await dio.post("/proses_api.php", data: {
-      "aksi": "login",
+      "aksi": "loginBMW",
       "username": user,
       "password": password
     }); 
 
     //print( res.data);
-    final String message = jsonDecode(res.data);
+    final Map<String, dynamic> decodedResponse = jsonDecode(res.data);
+    final String message = decodedResponse['message'];
     //print(message);
-    if(message == 'Success'){
+    if (message == 'Success') {
       //context.push('/home');
       return message;
     } else {
